@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express')
 const connet =require('./database/db')
-const music = require('./model/Music')
+const Music = require('./model/Music')
 const path = require('path')
 
 
@@ -16,6 +16,17 @@ connet();
 
 app.get('/', function (req, res) {
     res.render("index")
+})
+
+app.get('/admin', function (req, res) {
+    res.render("admin")
+})
+
+app.post('/create', async function (req, res) {
+   const music = req.body
+  await Music.create(music)
+  res.redirect('/')
+
 })
 
 app.listen(3000, () => {
