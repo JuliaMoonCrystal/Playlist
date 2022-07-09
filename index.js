@@ -7,6 +7,9 @@ const music = require('./model/Music')
 const app = express()
 const port=process.env.PORT || 3000;
 
+app.set("view engine","ejs")
+app.use(express.static())
+
 connet();
 
 app.get('/hello', function (req, res) {
