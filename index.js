@@ -1,10 +1,16 @@
+require('dotenv').config();
 const express = require('express')
-const app = express()
+const connet =require('./database/db')
+const music = require('./model/Music')
 
+
+const app = express()
 const port=process.env.PORT || 3000;
 
-app.get('/', function (req, res) {
-    res.send('Hello World, Mundo')
+connet();
+
+app.get('/hello', function (req, res) {
+    res.send(`${port}`)
 })
 
 app.listen(3000, () => {
