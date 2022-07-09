@@ -9,5 +9,47 @@
 <body>
     <h1>Olá mundo</h1>
     <a href="/admin">Administrador</a>
+
+    <section id="player">
+        <h1>Playlist Blue</h1>
+
+        <div>
+    
+            <h2 id="currentName">Titulo</h2>
+            <p id="currentArtist">Artista</p>
+        </div>
+
+        <div>
+            <table>
+
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Artista</th>
+                        <th>Link da música</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% playlist.forEach((music)=> { %>
+                        <tr class="musics">
+                            <td><img src="<%= music.linkImage %>" alt="Imagem da musica"></td>
+                            <td>
+                                <%= music.name %>
+                            </td>
+                            <td>
+                                <%= music.author %>
+                            </td>
+                            <td>
+                                <audio class="audio " controls src="<%= music.linkMusic %>"></audio>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+
+            </table>
+        </div>
+    </section>
 </body>
 </html>

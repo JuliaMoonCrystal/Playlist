@@ -14,8 +14,9 @@ app.use(express.urlencoded())
 
 connet();
 
-app.get('/', function (req, res) {
-    res.render("index")
+app.get('/', async function (req, res) {
+    const playlist = await Music.find()
+    res.render("index",{playlist})
 })
 
 app.get('/admin', function (req, res) {
